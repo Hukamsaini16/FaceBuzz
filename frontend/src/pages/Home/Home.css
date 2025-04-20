@@ -1,0 +1,91 @@
+/* Reset body & html to prevent scroll */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Full-screen fixed layout */
+.home-container {
+  height: 100vh;                   /* Full viewport height */
+  width: 100vw;                    /* Full viewport width */
+  background-color: #f1f5f9;       /* Soft gray-blue */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;         /* Vertical center */
+  align-items: center;             /* Horizontal center */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+
+/* Headline styling */
+.headline {
+  font-size: 2.8rem;
+  font-weight: bold;
+  color: #0f172a;                  /* Dark slate */
+  margin-bottom: 40px;
+}
+
+/* Buttons container */
+.link-buttons {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;                /* Wrap on smaller screens */
+  justify-content: center;
+}
+
+/* Individual navigation buttons */
+.home-link {
+  background-color: #1d4ed8;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-link:hover {
+  background-color: #2563eb;
+  transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .headline {
+    font-size: 2rem;
+  }
+
+  .home-link {
+    font-size: 1rem;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline {
+    font-size: 1.6rem;
+  }
+
+  .link-buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .home-link {
+    width: 80%;
+    max-width: 300px;
+    font-size: 0.95rem;
+    padding: 10px 16px;
+  }
+}
