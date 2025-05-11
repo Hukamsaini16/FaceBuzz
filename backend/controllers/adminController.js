@@ -62,6 +62,75 @@ const euclideanDistance = (desc1, desc2) => {
 
 // ✅ Verify Admin Face
 
+// export const verifyAdmin = async (req, res) => {
+//   try {
+//     const { faceDescriptor } = req.body;
+
+//     if (
+//       !faceDescriptor ||
+//       !Array.isArray(faceDescriptor) ||
+//       faceDescriptor.length !== 128
+//     ) {
+//       return res
+//         .status(400)
+//         .json({ success: false, message: "Invalid face descriptor." });
+//     }
+
+//     const admins = await adminModel.find({});
+
+//     let bestMatch = null;
+//     let minDistance = Number.MAX_VALUE;
+//     const threshold = 0.4;
+
+//     for (const admin of admins) {
+//       const dbDescriptor = admin.faceDescriptor;
+
+//       if (!Array.isArray(dbDescriptor) || dbDescriptor.length !== 128) continue;
+
+//       const distance = euclideanDistance(faceDescriptor, dbDescriptor);
+
+//       if (distance < minDistance) {
+//         minDistance = distance;
+//         bestMatch = admin;
+//       }
+//     }
+
+//     if (bestMatch && minDistance <= threshold) {
+//       // ✅ Create token
+//       const token = jwt.sign(
+//         { id: bestMatch._id, role: 'admin' },
+//         process.env.JWT_SECRET,
+//         { expiresIn: '1d' }
+//       );
+
+//       // ✅ Set token in cookie
+//       res.cookie('authToken', token, {
+//         httpOnly: true,
+//         secure: false, // true if using HTTPS
+//         sameSite: 'Strict',
+//         maxAge: 24 * 60 * 60 * 1000 // 1 day
+//       });
+
+//       return res.status(200).json({
+//         success: true,
+//         message: `Welcome ${bestMatch.name}`,
+//         name: bestMatch.name,
+//         adminId: bestMatch._id, // use _id instead of adminId if Mongoose
+//         distance: minDistance.toFixed(4),
+//       });
+//     } else {
+//       return res.status(401).json({
+//         success: false,
+//         message: "Face not matched. Try again.",
+//         distance: minDistance.toFixed(4),
+//       });
+//     }
+//   } catch (error) {
+//     console.error("Verification error:", error);
+//     res.status(500).json({ success: false, message: "Server error." });
+//   }
+// };
+
 export const verifyAdmin = async (req, res) => {
   try {
     const { faceDescriptor } = req.body;
@@ -98,24 +167,24 @@ export const verifyAdmin = async (req, res) => {
     if (bestMatch && minDistance <= threshold) {
       // ✅ Create token
       const token = jwt.sign(
-        { id: bestMatch._id, role: 'admin' },
+        { id: bestMatch._id, role: "admin" },
         process.env.JWT_SECRET,
-        { expiresIn: '1d' }
+        { expiresIn: "1d" }
       );
 
-      // ✅ Set token in cookie
-      res.cookie('authToken', token, {
+      // ✅ Set token in cookie with proper configurations
+      res.cookie("authToken", token, {
         httpOnly: true,
-        secure: false, // true if using HTTPS
-        sameSite: 'Strict',
-        maxAge: 24 * 60 * 60 * 1000 // 1 day
+        secure: process.env.NODE_ENV === "production", // Only secure in production
+        sameSite: "None", // This allows cross-origin requests
+        maxAge: 24 * 60 * 60 * 1000, // 1 day
       });
 
       return res.status(200).json({
         success: true,
         message: `Welcome ${bestMatch.name}`,
         name: bestMatch.name,
-        adminId: bestMatch._id, // use _id instead of adminId if Mongoose
+        adminId: bestMatch._id,
         distance: minDistance.toFixed(4),
       });
     } else {
