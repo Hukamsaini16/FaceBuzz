@@ -1,5 +1,5 @@
 import Admin from "../models/Admin.js";
-import Teacher from "../models/teacher.js";
+import Teacher from "../models/Teacher.js";
 
 // Helper to calculate Euclidean distance
 function euclideanDistance(desc1, desc2) {
