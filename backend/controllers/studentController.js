@@ -3,7 +3,7 @@ import studentModel from "../models/student.js";
 
 import moment from "moment";
 import mongoose from "mongoose";
-import studentAttendanceModel from "../models/studentAttendance.js";
+import studentAttendanceModel from "../models/StudentAttendance.js";
 
 // Utility to calculate Euclidean Distance
 const euclideanDistance = (desc1, desc2) => {
