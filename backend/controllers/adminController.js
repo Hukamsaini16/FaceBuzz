@@ -1,5 +1,6 @@
 import adminModel from "../models/Admin.js";
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
 // ✅ Register Admin
 export const registerAdmin = async (req, res) => {
