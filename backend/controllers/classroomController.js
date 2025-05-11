@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import teacherModel from "../models/teacher.js";
-import studentModel from "../models/student.js";
-import StudentAttendanceModel from "../models/studentAttendance.js";
+import teacherModel from "../models/Teacher.js";
+import studentModel from "../models/Student.js";
+import StudentAttendanceModel from "../models/StudentAttendance.js";
 import Classroom from "../models/Classroom.js";
 
 export const createClassroom = async (req, res) => {
