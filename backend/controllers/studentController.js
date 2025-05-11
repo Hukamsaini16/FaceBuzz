@@ -1,5 +1,5 @@
 import Classroom from "../models/Classroom.js";
-import studentModel from "../models/Student.js";
+import studentModel from "../models/student.js";
 
 import moment from "moment";
 import mongoose from "mongoose";
