@@ -4,6 +4,7 @@ import teacherAttendanceModel from "../models/TeacherAttendance.js";
 import dayjs from "dayjs";
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+dotenv.config();
 //const JWT_SECRET = 'yourSecretKey';
 
 // ✅ Register Teacher
