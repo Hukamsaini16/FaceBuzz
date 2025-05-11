@@ -1,4 +1,4 @@
-import StudentModel from "../models/Student.js";
+import StudentModel from "../models/student.js";
 import StudentAttendanceModel from "../models/StudentAttendance.js";
 
 // ✅ Store Daily Attendance Summary
