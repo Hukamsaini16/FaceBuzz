@@ -3,6 +3,7 @@ import teacherModel from "../models/Teacher.js";
 import teacherAttendanceModel from "../models/TeacherAttendance.js";
 import dayjs from "dayjs";
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 //const JWT_SECRET = 'yourSecretKey';
 
 // ✅ Register Teacher
