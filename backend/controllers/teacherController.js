@@ -1,6 +1,6 @@
 import teacherModel from "../models/Teacher.js";
 
-import teacherAttendanceModel from "../models/teacherAttendance.js";
+import teacherAttendanceModel from "../models/TeacherAttendance.js";
 import dayjs from "dayjs";
 import jwt from 'jsonwebtoken';
 //const JWT_SECRET = 'yourSecretKey';
