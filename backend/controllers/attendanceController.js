@@ -1,5 +1,5 @@
-import StudentModel from "../models/student.js";
-import StudentAttendanceModel from "../models/studentAttendance.js";
+import StudentModel from "../models/Student.js";
+import StudentAttendanceModel from "../models/StudentAttendance.js";
 
 // ✅ Store Daily Attendance Summary
 export const storeDailyAttendanceSummary = async (req, res) => {
