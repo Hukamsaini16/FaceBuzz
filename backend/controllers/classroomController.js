@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import teacherModel from "../models/Teacher.js";
-import studentModel from "../models/Student.js";
+import studentModel from "../models/student.js";
 import StudentAttendanceModel from "../models/StudentAttendance.js";
 import Classroom from "../models/Classroom.js";
 
