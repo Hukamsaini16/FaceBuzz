@@ -1,15 +1,70 @@
 .simple-navbar {
-    background-color: #1e293b; /* Slate dark blue */
-    padding: 15px 30px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #1e293b; /* Slate dark blue */
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Logo image styling */
+.logo img {
+  width: 40px; /* Adjust the size as needed */
+  height: 40px;
+  object-fit: contain;
+}
+
+/* New styles for the Logout button */
+.logout-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-left: auto; /* Pushes the logout button to the right */
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .simple-navbar {
+    padding: 10px 20px; /* Reduce padding on smaller screens */
+    flex-direction: column; /* Stack logo and logout button vertically */
+    align-items: flex-start;
   }
-  
+
   .logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px; /* Slightly smaller logo on smaller screens */
   }
-  
+
+  .logout-btn {
+    margin-left: 0; /* Remove left margin */
+    margin-top: 10px; /* Add space between logo and logout button */
+    width: 100%; /* Make the logout button take full width on mobile */
+    text-align: center; /* Center the text inside the button */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 18px; /* Further reduce logo size on very small screens */
+  }
+
+  .logout-btn {
+    padding: 10px 20px; /* Adjust padding for smaller buttons on mobile */
+  }
+}

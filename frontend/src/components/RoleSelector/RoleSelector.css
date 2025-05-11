@@ -1,0 +1,69 @@
+.role-select-container {
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Changed from center to flex-start */
+  align-items: center;
+  background: linear-gradient(to right, #8e44ad, #3498db);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  gap: 20px;
+  padding-top: 15vh; /* Added padding to move it slightly downward */
+}
+
+.role-select-container h2 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.role-select-container button {
+  background-color: white;
+  border: none;
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 250px;
+  max-width: 90%;
+}
+
+.role-select-container button:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-2px);
+}
+
+/* Responsive for tablets and smaller */
+@media (max-width: 768px) {
+  .role-select-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .role-select-container button {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Extra small screens (phones) */
+@media (max-width: 480px) {
+  .role-select-container {
+    padding: 10px;
+    padding-top: 10vh; /* Adjusted for mobile view */
+  }
+
+  .role-select-container h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .role-select-container button {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+    margin: 8px;
+  }
+}

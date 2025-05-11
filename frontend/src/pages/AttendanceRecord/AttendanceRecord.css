@@ -1,0 +1,255 @@
+/* html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; 
+} */
+
+
+
+/* Attendance Table */
+/* .record-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.header-row {
+  display: flex;
+  background-color: #f0f0f0;
+  padding: 0.5rem;
+  border-bottom: 2px solid #ddd;
+}
+
+.name-cell {
+  font-weight: bold;
+  padding: 0.5rem;
+  text-align: left;
+  min-width: 150px;
+}
+
+.day-cell {
+  text-align: center;
+  font-weight: bold;
+  padding: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: default;
+}
+
+.record-row {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.record-row .name-cell {
+  font-size: 1rem;
+}
+
+.record-row:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.record-row:hover {
+  background-color: #f0f0f0;
+} */
+
+/* Attendance Status Styles */
+/* .present {
+  background-color: #4caf50;
+  color: white;
+  font-size: 0.8rem; 
+  width: 1.5rem; 
+  height: 1.5rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.absent {
+  background-color: #f44336;
+  color: white;
+  font-size: 0.8rem; 
+  width: 1.5rem; 
+  height: 1.5rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.future {
+  background-color: #e0e0e0;
+  color: #333;
+  font-size: 0.8rem; 
+  width: 1.5rem; 
+  height: 1.5rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* Responsive Styles */
+/* @media (max-width: 768px) {
+  .teacher-record-container {
+    padding: 1rem;
+  }
+
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .record-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .name-cell {
+    margin-bottom: 0.5rem;
+  }
+
+  .day-cell {
+    font-size: 0.8rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .present, .absent, .future {
+    width: 1.3rem;
+    height: 1.3rem;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .teacher-record-container {
+    padding: 0.5rem;
+  }
+
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .record-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .name-cell {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .day-cell {
+    font-size: 0.7rem;
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  .present, .absent, .future {
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.6rem;
+  }
+} */
+/*
+.teacher-record-container {
+  padding: 2rem;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+h2 {
+  font-size: 1.75rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+input[type="month"] {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 1.5rem;
+  width: 160px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+} */
+
+/* Legend */
+
+/* Table Styles */
+
+
+/* Rows */
+/*
+.record-row {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.record-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Status styles */
+/*
+.present {
+  background-color: #4caf50;
+  color: white;
+}
+
+.absent {
+  background-color: #f44336;
+  color: white;
+}
+
+.future {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  color: #ccc;
+}
+
+/* Responsive */
+/*
+@media screen and (max-width: 768px) {
+  .day-cell {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.6rem;
+  }
+
+  .name-cell {
+    font-size: 0.85rem;
+  }
+
+  .legend {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+

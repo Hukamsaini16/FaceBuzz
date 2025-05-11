@@ -1,0 +1,142 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap');
+
+.teacher-register-container {
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #fdfdfd, #f0f8ff);
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.07);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.teacher-register-container h2 {
+  font-size: 2rem;
+  color: #1e3a5f;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.form input {
+  width: 100%;
+  max-width: 450px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  outline: none;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.buttons button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttons button:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.buttons button:disabled {
+  background-color: #c0c0c0;
+  cursor: not-allowed;
+}
+
+.video-feed {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  border: 2px solid #ccc;
+  margin: 1rem auto;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.message {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #28a745;
+  margin: 1rem 0 0.5rem;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .teacher-register-container {
+    padding: 20px 15px;
+    margin: 20px 10px;
+  }
+
+  .teacher-register-container h2 {
+    font-size: 1.7rem;
+  }
+
+  .form input {
+    font-size: 0.95rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons button {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .video-feed {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 480px) {
+  .teacher-register-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .form input {
+    padding: 12px;
+  }
+
+  .buttons button {
+    padding: 12px;
+  }
+
+  .video-feed {
+    border-radius: 10px;
+  }
+}

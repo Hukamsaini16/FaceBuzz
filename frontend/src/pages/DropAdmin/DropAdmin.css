@@ -1,0 +1,123 @@
+.drop-admin-container {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.drop-admin-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.drop-admin-empty {
+  text-align: center;
+  color: gray;
+  font-style: italic;
+}
+
+/* Scrollable container for admin list */
+.admin-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 65vh; /* Limits the height to 65% of the viewport */
+  overflow-y: auto; /* Enables vertical scroll */
+}
+
+/* Scrollbar styling */
+.admin-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.admin-list::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 4px;
+}
+
+.admin-list::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
+
+.admin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.admin-name {
+  font-weight: 500;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+.admin-id {
+  color: #888;
+  font-size: 0.9rem;
+  margin-left: 6px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .drop-admin-container {
+    padding: 15px;
+    max-width: 90%;
+  }
+
+  .drop-admin-title {
+    font-size: 20px;
+  }
+
+  .admin-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .admin-name {
+    font-size: 16px;
+  }
+
+  .admin-id {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .drop-admin-title {
+    font-size: 18px;
+  }
+
+  .delete-btn {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+
+  .admin-item {
+    padding: 8px;
+  }
+}

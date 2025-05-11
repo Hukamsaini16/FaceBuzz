@@ -1,0 +1,145 @@
+.admin-holidays-container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .admin-holidays-container {
+    max-height: 90vh;
+    overflow-y: auto;
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #cbd5e1 #f1f5f9; /* Track color */
+  }
+  
+  /* For WebKit browsers (Chrome, Edge, Safari) */
+  .admin-holidays-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .admin-holidays-container::-webkit-scrollbar-track {
+    background: #f1f5f9; /* light gray background */
+    border-radius: 8px;
+  }
+  
+  .admin-holidays-container::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1; /* darker gray scroll thumb */
+    border-radius: 8px;
+    border: 2px solid #f1f5f9; /* spacing around thumb */
+  }
+  
+  
+  .holiday-title {
+    text-align: center;
+    margin-bottom: 1.2rem;
+    font-size: 1.6rem;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .react-calendar {
+    width: 100%;
+    border: none;
+    font-family: inherit;
+    line-height: 1.2em;
+  }
+  
+  .react-calendar__tile {
+    height: 45px;
+    padding: 8px 4px;
+    font-size: 0.85rem;
+  }
+  
+  .react-calendar__tile--now {
+    background: #f0f8ff;
+    color: #0077cc;
+    font-weight: bold;
+  }
+  
+  .selected-holiday {
+    background-color: #f87171 !important;
+    color: white !important;
+    border-radius: 6px;
+  }
+  
+  .selected-dates {
+    margin-top: 1.2rem;
+    background: #f9fafb;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .selected-dates h4 {
+    margin-bottom: 0.4rem;
+    color: #111827;
+    font-size: 1rem;
+  }
+  
+  .selected-dates ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  
+  .selected-dates li {
+    background-color: #e5e7eb;
+    padding: 0.35rem 0.7rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    color: #1f2937;
+  }
+  
+  .submit-holiday-btn {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-holiday-btn:hover {
+    background-color: #1d4ed8;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .admin-holidays-container {
+      padding: 1rem;
+    }
+  
+    .holiday-title {
+      font-size: 1.4rem;
+    }
+  
+    .react-calendar__tile {
+      font-size: 0.75rem;
+      height: 40px;
+    }
+  
+    .selected-dates li {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.6rem;
+    }
+  
+    .submit-holiday-btn {
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+  

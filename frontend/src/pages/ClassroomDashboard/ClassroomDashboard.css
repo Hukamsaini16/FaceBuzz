@@ -1,0 +1,40 @@
+.classroom-dashboard-container {
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .classroom-dashboard-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .button-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .button-grid button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #0077ff;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .button-grid button:hover {
+    background-color: #005fcc;
+    transform: scale(1.02);
+  }
+  
+  
+ 
+  

@@ -1,7 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+
+import React, { useState, useEffect, useRef, useContext } from "react";
 import * as faceapi from "face-api.js";
 import axios from "axios";
 import { Bar } from "react-chartjs-2";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 import {
   Chart as ChartJS,
   BarElement,
@@ -10,21 +12,23 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import "./FaceScanner.css";
+//import "./TeacherAttendance.css"; // reuse styles
+import { useUser } from "../../context/UserContext";
 
-// Register necessary Chart.js components
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const FaceScanner = () => {
-  const [studentsPresent, setStudentsPresent] = useState([]);
+  const { classId } = useUser();
   const [registeredStudents, setRegisteredStudents] = useState([]);
+  const [studentsPresent, setStudentsPresent] = useState([]);
   const [cameraOn, setCameraOn] = useState(false);
   const [modelsLoaded, setModelsLoaded] = useState(false);
   const [attendanceDone, setAttendanceDone] = useState(false);
+  const [attendanceSaved, setAttendanceSaved] = useState(false);
 
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-
+ 
   useEffect(() => {
     const loadModels = async () => {
       await faceapi.nets.tinyFaceDetector.loadFromUri("/models");
@@ -38,19 +42,21 @@ const FaceScanner = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/students");
-        setRegisteredStudents(response.data.students);
-      } catch (error) {
-        console.error("Error fetching students:", error);
+        const res = await axios.get(`${BASE_URL}/api/students/class/${classId}`,
+          { withCredentials: true } // 👈 Send cookies on DELETE also
+        );
+        setRegisteredStudents(res.data.students);
+      } catch (err) {
+        console.error("Error fetching students:", err);
       }
     };
-    fetchStudents();
-  }, []);
+    if (classId) fetchStudents();
+  }, [classId]);
 
   useEffect(() => {
     let interval;
     if (cameraOn && modelsLoaded && !attendanceDone) {
-      interval = setInterval(() => scanFace(), 3000);
+      interval = setInterval(scanFace, 3000);
     }
     return () => clearInterval(interval);
   }, [cameraOn, modelsLoaded, attendanceDone, studentsPresent]);
@@ -80,12 +86,20 @@ const FaceScanner = () => {
     if (!detection) return;
 
     const faceDescriptor = Array.from(detection.descriptor);
+
     try {
-      const response = await axios.post("http://localhost:4000/api/verify", { faceDescriptor });
+      const response = await axios.post(`${BASE_URL}/api/students/verify`, {
+        classId,
+        faceDescriptor,
+      },
+      { withCredentials: true } // 👈 Send cookies on DELETE also
+    );
+
       if (response.data.success) {
         const alreadyMarked = studentsPresent.some(
-          (student) => student.enrollNumber === response.data.enrollNumber
+          (s) => s.studentId === response.data.studentId
         );
+
         if (!alreadyMarked) {
           setStudentsPresent((prev) => [...prev, response.data]);
           const speech = new SpeechSynthesisUtterance(`${response.data.name} present`);
@@ -93,13 +107,40 @@ const FaceScanner = () => {
         }
       }
     } catch (err) {
-      console.error("Face not matched or error:", err);
+      console.log("Student not matched or error:", err);
     }
   };
 
   const handleDone = () => {
     stopCamera();
     setAttendanceDone(true);
+  };
+
+  const saveAttendanceToDB = async () => {
+    if (!studentsPresent || studentsPresent.length === 0) {
+      alert("No students were marked present.");
+      return;
+    }
+  
+    try {
+      const payload = {
+        classId,
+        date: new Date().toISOString(),
+        presentStudents: studentsPresent.map((s) => s.studentId),
+      };
+  
+      console.log("Sending attendance:", payload); // Debug log
+  
+      await axios.post(`${BASE_URL}/api/students/mark-attendance`, payload,
+        { withCredentials: true } // 👈 Send cookies on DELETE also
+      );
+  
+      setAttendanceSaved(true);
+      alert("Attendance saved successfully!");
+    } catch (err) {
+      console.error("Saving attendance failed:", err);
+      alert("Error saving attendance.");
+    }
   };
 
   const today = new Date();
@@ -111,12 +152,13 @@ const FaceScanner = () => {
   const percent = total > 0 ? ((present / total) * 100).toFixed(2) : "0.00";
 
   const chartData = {
-    labels: ["Total", "Present", "Absent"],
+    labels: ["Total Students", "Present", "Absent"],
     datasets: [
       {
-        label: "Students",
+        label: "Attendance Count",
         data: [total, present, absent],
         backgroundColor: ["#007bff", "#28a745", "#dc3545"],
+        borderWidth: 1,
       },
     ],
   };
@@ -130,10 +172,7 @@ const FaceScanner = () => {
     scales: {
       y: {
         beginAtZero: true,
-        precision: 0,
-        ticks: {
-          stepSize: 1,
-        },
+        ticks: { stepSize: 1 },
       },
     },
   };
@@ -142,7 +181,7 @@ const FaceScanner = () => {
     <div className="scanner-container">
       {!attendanceDone ? (
         <>
-          <h2 className="scanner-title">Face Recognition Attendance</h2>
+          <h2 className="scanner-title">Student Face Recognition Attendance</h2>
           <div className="scanner-buttons">
             <button onClick={startCamera} disabled={cameraOn || !modelsLoaded}>
               Start Attendance
@@ -151,28 +190,40 @@ const FaceScanner = () => {
               Done
             </button>
           </div>
-
           <div className="video-wrapper">
-            <video
-              ref={videoRef}
-              autoPlay
-              muted
-              playsInline
-              className="video-feed"
-            />
+            <video ref={videoRef} autoPlay muted playsInline className="video-feed" />
             <canvas ref={canvasRef} className="video-canvas" />
           </div>
         </>
       ) : (
         <>
           <h2 className="scanner-title">Attendance Summary</h2>
-          <p><strong>Day:</strong> {dayStr}</p>
-          <p><strong>Date:</strong> {dateStr}</p>
-          <p><strong>Present Students:</strong> {present}</p>
-          <p><strong>Attendance Percentage:</strong> {percent}%</p>
+          <div className="summary-container">
+            <div className="summary-left">
+              <p><strong>Day:</strong> {dayStr}</p>
+              <p><strong>Date:</strong> {dateStr}</p>
+              <p><strong>Present Students:</strong> {present}</p>
+              <p><strong>Attendance Percentage:</strong> {percent}%</p>
+              <div className="chart-wrapper">
+                <Bar data={chartData} options={chartOptions} />
+              </div>
+              <button
+                onClick={saveAttendanceToDB}
+                disabled={attendanceSaved}
+                className="summary-done-btn"
+              >
+                {attendanceSaved ? "Attendance Saved ✅" : "Save Attendance to Database"}
+              </button>
+            </div>
 
-          <div style={{ maxWidth: "500px", margin: "20px auto" }}>
-            <Bar data={chartData} options={chartOptions} />
+            <div className="summary-right">
+              <h3>Present Students</h3>
+              <ul>
+                {studentsPresent.map((s, i) => (
+                  <li key={i}>{s.name}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </>
       )}
@@ -181,3 +232,5 @@ const FaceScanner = () => {
 };
 
 export default FaceScanner;
+
+

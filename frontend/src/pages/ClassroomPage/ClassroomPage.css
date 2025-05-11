@@ -1,0 +1,140 @@
+.classroom-page {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.classroom-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.classroom-list {
+  display: flex;
+  overflow-x: auto; /* Enables horizontal scroll */
+  gap: 1rem;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.classroom-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.classroom-list::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+.classroom-item {
+  flex: 0 0 300px; /* Each card takes fixed width */
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.classroom-info {
+  margin-bottom: 1rem;
+}
+
+.classroom-name,
+.teacher-name {
+  margin: 0.5rem 0;
+}
+
+.action {
+  text-align: right;
+}
+
+.delete-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff4d4d;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #cc0000;
+}
+
+.student-count {
+  color: #555;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+.classroom-password{
+  color: #555;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+
+@media (max-width: 768px) {
+  .classroom-page {
+    padding: 1rem;
+  }
+
+  .classroom-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .classroom-item {
+    flex: 0 0 250px;
+    padding: 0.8rem;
+    min-height: 140px;
+  }
+
+  .delete-button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .student-count {
+    font-size: 0.85rem;
+  }
+
+  .classroom-password{
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .classroom-page h1 {
+    font-size: 1.25rem;
+  }
+
+  .classroom-item {
+    flex: 0 0 220px;
+    padding: 0.7rem;
+  }
+
+  .classroom-name,
+  .teacher-name {
+    font-size: 0.95rem;
+  }
+
+  .delete-button {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+
+  .student-count {
+    font-size: 0.8rem;
+  }
+
+  .classroom-password{
+    font-size: 0.8rem;
+  }
+}
+

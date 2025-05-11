@@ -1,0 +1,121 @@
+.drop-teacher-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.drop-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Scrollable container for teacher list */
+.teacher-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 70vh; /* Limits the height to 70% of the viewport */
+  overflow-y: auto; /* Enables vertical scroll */
+}
+
+/* Scrollbar styling */
+.teacher-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.teacher-list::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.teacher-list::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+.teacher-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f1f1;
+  padding: 15px 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.teacher-info {
+  flex-grow: 1;
+}
+
+.teacher-info h4 {
+  margin: 0;
+}
+
+.teacher-info p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: red;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: darkred;
+}
+
+.teacher-id {
+  font-weight: normal;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .drop-teacher-container {
+    padding: 15px;
+  }
+
+  .drop-title {
+    font-size: 20px;
+  }
+
+  .teacher-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+
+  .delete-btn {
+    align-self: flex-end;
+    font-size: 18px;
+  }
+
+  .teacher-info h4 {
+    font-size: 16px;
+  }
+
+  .teacher-info p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .drop-title {
+    font-size: 18px;
+  }
+
+  .teacher-card {
+    padding: 10px 14px;
+  }
+
+  .delete-btn {
+    font-size: 16px;
+  }
+}

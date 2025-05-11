@@ -1,0 +1,81 @@
+.admin-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa, #fff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.admin-dashboard h1 {
+  font-size: 2.5rem;
+  color: #00796b;
+  margin-bottom: 40px;
+}
+
+.dashboard-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 10px;
+}
+
+.dashboard-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px; /* Fixed height for uniformity */
+  min-width: 180px; /* Ensures buttons do not shrink too much */
+  padding: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background-color: #009688;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background-color 0.3s ease;
+  word-wrap: break-word;
+}
+
+.dashboard-btn:hover {
+  background-color: #00796b;
+  transform: translateY(-3px);
+}
+
+/* Tablet screen adjustments */
+@media (max-width: 768px) {
+  .admin-dashboard h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .dashboard-btn {
+    font-size: 1rem;
+    padding: 16px;
+    height: 55px; /* Adjust height for smaller screens */
+  }
+}
+
+/* Mobile screen adjustments */
+@media (max-width: 480px) {
+  .admin-dashboard h1 {
+    font-size: 1.7rem;
+  }
+
+  .dashboard-buttons {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .dashboard-btn {
+    padding: 14px;
+    font-size: 0.95rem;
+    height: 50px; /* Adjust height for mobile */
+  }
+}

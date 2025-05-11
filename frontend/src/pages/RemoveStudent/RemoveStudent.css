@@ -1,0 +1,99 @@
+
+.remove-student-container {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.remove-student-container h2 {
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Student List with Vertical Scroll */
+.student-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px; /* Maximum height for vertical scrolling */
+  overflow-y: auto; /* Vertical scroll if content overflows */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+/* Scrollbar styling (optional, for better appearance) */
+.student-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.student-list::-webkit-scrollbar-thumb {
+  background-color: #d1d1d1;
+  border-radius: 4px;
+}
+
+.student-list::-webkit-scrollbar-thumb:hover {
+  background-color: #b0b0b0;
+}
+
+.student-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.student-item:last-child {
+  border-bottom: none; /* Remove border for the last item */
+}
+
+.student-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.student-info {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex: 1;
+  align-items: center;
+  overflow: hidden;
+}
+
+.student-enrollment {
+  font-weight: 600;
+  color: #007bff;
+  min-width: 120px;
+}
+
+.student-name {
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.delete-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #e03131;
+}

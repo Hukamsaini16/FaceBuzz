@@ -1,0 +1,108 @@
+.enter-classroom-container {
+    padding: 2rem;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    background: #f1f5f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  }
+  
+  .enter-classroom-container h2 {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+  }
+  
+  .enter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .enter-form input {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+  }
+  
+  .enter-form input:focus {
+    outline: none;
+    border-color: #0077ff;
+  }
+  
+  .dropdown-container {
+    position: relative;
+  }
+  
+  button[type="submit"] {
+    background: #0077ff;
+    color: #fff;
+    padding: 0.9rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background: #005fcc;
+  }
+  
+  .error-msg {
+    color: red;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 768px) {
+    .enter-classroom-container {
+      padding: 1.5rem;
+      width: 90%;
+    }
+  
+    .enter-classroom-container h2 {
+      font-size: 1.5rem;
+    }
+  
+    .enter-form {
+      gap: 1rem;
+    }
+  
+    .enter-form input,
+    button[type="submit"] {
+      font-size: 0.95rem;
+    }
+  
+    .dropdown-container {
+      margin-bottom: 1rem;
+    }
+  
+    .error-msg {
+      font-size: 0.85rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .enter-classroom-container {
+      padding: 1rem;
+      width: 100%;
+    }
+  
+    .enter-classroom-container h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+  
+    .enter-form input,
+    button[type="submit"] {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+    }
+  
+    .error-msg {
+      font-size: 0.8rem;
+    }
+  }
+  

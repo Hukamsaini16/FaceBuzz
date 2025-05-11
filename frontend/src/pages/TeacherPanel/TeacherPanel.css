@@ -1,0 +1,86 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.teacher-panel-container {
+  font-family: 'Poppins', sans-serif;
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 40px;
+  background: linear-gradient(135deg, #f8f9fa, #e8f0fe);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.teacher-title {
+  font-size: 32px;
+  font-weight: 600;
+  color: #2f3640;
+  margin-bottom: 35px;
+}
+
+.teacher-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.teacher-buttons button {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 16px 25px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #4a90e2, #357ABD);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.teacher-buttons button:hover {
+  background: linear-gradient(145deg, #357ABD, #2C66A5);
+  transform: scale(1.03);
+  box-shadow: 0 12px 25px rgba(74, 144, 226, 0.4);
+}
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  .teacher-panel-container {
+    padding: 30px 20px;
+    margin: 40px 15px;
+  }
+
+  .teacher-title {
+    font-size: 28px;
+  }
+
+  .teacher-buttons button {
+    font-size: 16px;
+    padding: 14px 20px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  .teacher-panel-container {
+    padding: 25px 15px;
+    margin: 30px 10px;
+  }
+
+  .teacher-title {
+    font-size: 24px;
+  }
+
+  .teacher-buttons {
+    gap: 18px;
+  }
+
+  .teacher-buttons button {
+    font-size: 15px;
+    padding: 12px 18px;
+  }
+}
+

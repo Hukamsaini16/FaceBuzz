@@ -2,6 +2,7 @@
 import React from "react";
 import StudentRegistrationForm from "../../components/StudentRegistration/StudentRegistration";
 
+
 const StudentRegister = () => {
   return (
     <div>
